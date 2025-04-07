@@ -52,7 +52,7 @@ class Facade:
             feed_page.filter_high(filters['high'])
         except Exception as e:
             logger.error(f"Error applying high filter: {e}")
-        # Add similar error handling for other filters if needed
+        # TODO
         pass
     
     def item_action(page: Page, id: str, create_message: FunctionType):
@@ -68,7 +68,7 @@ class Facade:
     def filter_item(page, item, filter_description: str = None):
         if not filter_description:
             filter_description = "just answer yes."
-        # should use llm to filter items
+        # TODO: should use llm to filter items
         return True
 
     def extract_id(page, item):

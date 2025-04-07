@@ -14,13 +14,14 @@ class Controller:
     def run(self, username: str = None, password: str = None, limit: int = 0):
         logger.debug("Controller.run")
         # self.facade.login(username, password)
-        # self.filter_and_send_message_to_new_ones(limit)
-        self.send_message_to_ones_who_viewed_my_profile()
+        self.filter_and_send_message_to_new_ones(limit)
+        # self.send_message_to_ones_who_viewed_my_profile()
         self.facade.close()
     
     def filter_and_send_message_to_new_ones(self, limit: int = 0):
         logger.debug("Controller.filter_and_send_message_to_new_ones")
         try:
+            limit = 50
             self.facade.apply_filters({})
             items = self.facade.collect_items(filter=Facade.filter_item,
                                               extract=Facade.extract_id,
@@ -39,7 +40,7 @@ class Controller:
         logger.debug("Controller.send_message_to_ones_who_viewed_my_profile")
         try:
             num_of_views = self.facade.get_num_of_views()
-            num_of_views = 10
+            # num_of_views = 150
             items = self.facade.collect_items(filter=Facade.filter_item,
                                               extract=Facade.extract_id,
                                               limit=num_of_views,
