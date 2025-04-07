@@ -35,7 +35,7 @@ class Settings:
 
     @property
     def LOG_LEVEL(self):
-        return self.config.get('Settings', 'log_level', fallback='info')
+        return self.config.get('Settings', 'log_level', fallback='INFO')
     
     @property
     def LOG_FILE(self):

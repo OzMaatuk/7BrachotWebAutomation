@@ -15,5 +15,3 @@ file_handler = logging.FileHandler(Settings().LOG_FILE)
 file_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
-
-#TODO: fix logs to file

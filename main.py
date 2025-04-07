@@ -1,6 +1,8 @@
 from controller.controller import Controller
 from constants.settings import Settings
 from driver import initialize_driver
+import utils.logger
+
 
 def main():
     headless: bool = Settings().HEADLESS
