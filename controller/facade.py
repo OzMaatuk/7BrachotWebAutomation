@@ -1,5 +1,6 @@
 from types import FunctionType
 from playwright.sync_api import Page
+from constants.feed_constants import VIEWS_URL_SUFFIX
 from constants.settings import Settings
 from pages.login_page import LoginPage
 from pages.feed_page import FeedPage
@@ -72,7 +73,10 @@ class Facade:
         return True
 
     def extract_id(page, item):
-        id = page.url.split('/')[-1][6:][:-1]
+        url = page.url
+        url = url.split('/')[-1]
+        url = url.replace(VIEWS_URL_SUFFIX, '')
+        id = url[1:][:-1]
         if len(id) in range(30, 50):
             return id
         logger.error("Could not extract item id.")
