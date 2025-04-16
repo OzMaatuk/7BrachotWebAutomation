@@ -1,0 +1,13 @@
+# requirements.txt
+
+# Core Libraries
+playwright
+llm_utils @ git+https://github.com/OzMaatuk/LLMUtils.git
+
+# Configuration
+python-dotenv
+configparser
+
+# Testing
+pytest
+pytest-mock
