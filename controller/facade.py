@@ -13,7 +13,7 @@ class Facade:
         logger.debug("Initiliazing Facade")
         self.page = page
 
-    def login(self, username: str, password: str):
+    def login(self, username: str, password: str) -> None:
         logger.debug("Facade.login")
         login_page = LoginPage(self.page)
         self.page.goto(Settings().BASE_URL)
