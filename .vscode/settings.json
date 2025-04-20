@@ -2,7 +2,7 @@
     "python.testing.pytestArgs": [
         "tests/",
         "--verbose",
-        "--browser=webkit",
+        "--browser=msedge",
         "--cache-clear"
     ],
     "python.testing.unittestEnabled": false,
