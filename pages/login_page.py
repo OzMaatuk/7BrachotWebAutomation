@@ -11,8 +11,18 @@ class LoginPage:
         self.page.goto(Settings().BASE_URL)
         self.page.wait_for_load_state(state="networkidle")
 
+    def is_logged_in(self) -> bool:
+        logger.debug("LoginPage.is_logged_in")
+        try:
+            self.page.locator(USERNAME_INPUT).wait_for(1000)
+            return False
+        except Exception:
+            # self.page.locator(FEED_ITEMS).wait_for(1000)
+            return True
+
     def login(self, username: str, password: str):
         logger.debug("LoginPage.login")
+        if self.is_logged_in(): return
         self.page.fill(USERNAME_INPUT, username)
         self.page.fill(PASSWORD_INPUT, password)
         self.page.click(LOGIN_BUTTON)
