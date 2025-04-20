@@ -31,7 +31,7 @@ class ItemPage:
         logger.debug("ItemPage.send_message")
         try:
             self.page.fill(MESSAGE_INPUT, message, force=True)
-            # self.page.click(SEND_MESSAGE_BUTTON, force=True)
+            self.page.click(SEND_MESSAGE_BUTTON, force=True)
         except Exception as e:
             logger.error(f"Failed to send message: {e}")
             raise Exception("Message could not be sent.")
